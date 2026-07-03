@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iniciar sesión</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14181c;
+    --parchment:#faf7f2;
+    --gold:#c9a227;
+    --charcoal:#232323;
+    --rule:#d8d3c8;
+    --error:#b3432b;
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+      radial-gradient(circle at 20% -10%, rgba(201,162,39,0.10), transparent 40%),
+      var(--ink);
+    font-family:'Inter',sans-serif;
+    padding:24px;
+  }
+  .card{
+    width:100%;
+    max-width:400px;
+    background:var(--parchment);
+    border-radius:2px;
+    padding:44px 40px 36px;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.5);
+    position:relative;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin:0 0 14px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:32px;
+    line-height:1.1;
+    color:var(--charcoal);
+    margin:0 0 8px;
+  }
+  .sub{
+    font-size:14px;
+    color:#6b6459;
+    margin:0 0 32px;
+  }
+  form{display:flex;flex-direction:column;gap:20px;}
+  .field{display:flex;flex-direction:column;gap:8px;position:relative;}
+  label{
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:0.02em;
+    color:var(--charcoal);
+  }
+  input{
+    font-family:'Inter',sans-serif;
+    font-size:15px;
+    padding:12px 0 10px;
+    border:none;
+    border-bottom:1.5px solid var(--rule);
+    background:transparent;
+    color:var(--charcoal);
+    outline:none;
+    transition:border-color .2s ease;
+  }
+  input::placeholder{color:#b8b1a3;}
+  input:focus{border-bottom-color:var(--charcoal);}
+  .field.error input{border-bottom-color:var(--error);}
+  .error-msg{
+    font-size:12px;
+    color:var(--error);
+    min-height:14px;
+    margin:0;
+  }
+  .pw-wrap{position:relative;}
+  .toggle-pw{
+    position:absolute;
+    right:0;
+    top:10px;
+    background:none;
+    border:none;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.05em;
+    color:#6b6459;
+    cursor:pointer;
+    padding:4px 0;
+  }
+  .toggle-pw:hover{color:var(--charcoal);}
+  .row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-size:13px;
+    color:#6b6459;
+  }
+  .remember{display:flex;align-items:center;gap:8px;}
+  .remember input{accent-color:var(--gold);width:14px;height:14px;padding:0;}
+  a{color:var(--charcoal);text-decoration:none;border-bottom:1px solid var(--rule);}
+  a:hover{border-bottom-color:var(--charcoal);}
+  button.submit{
+    margin-top:8px;
+    padding:14px;
+    background:var(--charcoal);
+    color:var(--parchment);
+    border:none;
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:0.02em;
+    cursor:pointer;
+    transition:background .2s ease, transform .1s ease;
+  }
+  button.submit:hover{background:#000;}
+  button.submit:active{transform:scale(0.99);}
+  .divider{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:28px 0 20px;
+    color:#b8b1a3;
+    font-size:11px;
+    font-family:'IBM Plex Mono',monospace;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+  .divider::before,.divider::after{
+    content:'';
+    flex:1;
+    height:1px;
+    background:var(--rule);
+  }
+  .footer{
+    text-align:center;
+    font-size:13px;
+    color:#6b6459;
+  }
+  .status{
+    display:none;
+    margin-top:18px;
+    padding:12px 14px;
+    background:#eef6ee;
+    border-left:3px solid #3f7a4f;
+    font-size:13px;
+    color:#2f5e3b;
+  }
+  .status.show{display:block;}
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <p class="eyebrow">Acceso privado</p>
+    <h1>Bienvenido de nuevo</h1>
+    <p class="sub">Ingresa tus credenciales para continuar.</p>
+
+    <form id="signinForm" novalidate>
+      <div class="field" id="emailField">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" placeholder="tu@correo.com" autocomplete="email">
+        <p class="error-msg" id="emailError"></p>
+      </div>
+
+      <div class="field" id="passwordField">
+        <label for="password">Contraseña</label>
+        <div class="pw-wrap">
+          <input type="password" id="password" placeholder="••••••••" autocomplete="current-password">
+          <button type="button" class="toggle-pw" id="togglePw">MOSTRAR</button>
+        </div>
+        <p class="error-msg" id="passwordError"></p>
+      </div>
+
+      <div class="row">
+        <label class="remember">
+          <input type="checkbox" id="remember">
+          Recordarme
+        </label>
+        <a href="#">¿Olvidaste tu contraseña?</a>
+      </div>
+
+      <button type="submit" class="submit">Iniciar sesión</button>
+
+      <p class="status" id="status">Inicio de sesión correcto. Redirigiendo…</p>
+    </form>
+
+    <div class="divider">o continúa con</div>
+    <p class="footer">¿No tienes cuenta? <a href="#">Regístrate</a></p>
+  </div>
+
+<script>
+  const form = document.getElementById('signinForm');
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+  const emailField = document.getElementById('emailField');
+  const passwordField = document.getElementById('passwordField');
+  const emailError = document.getElementById('emailError');
+  const passwordError = document.getElementById('passwordError');
+  const togglePw = document.getElementById('togglePw');
+  const status = document.getElementById('status');
+
+  togglePw.addEventListener('click', () => {
+    const isPw = passwordInput.type === 'password';
+    passwordInput.type = isPw ? 'text' : 'password';
+    togglePw.textContent = isPw ? 'OCULTAR' : 'MOSTRAR';
+  });
+
+  function isValidEmail(value){
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  }
+
+  function setError(field, msgEl, message){
+    field.classList.add('error');
+    msgEl.textContent = message;
+  }
+
+  function clearError(field, msgEl){
+    field.classList.remove('error');
+    msgEl.textContent = '';
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    status.classList.remove('show');
+    let valid = true;
+
+    if(!isValidEmail(emailInput.value.trim())){
+      setError(emailField, emailError, 'Ingresa un correo válido.');
+      valid = false;
+    } else {
+      clearError(emailField, emailError);
+    }
+
+    if(passwordInput.value.length < 6){
+      setError(passwordField, passwordError, 'La contraseña debe tener al menos 6 caracteres.');
+      valid = false;
+    } else {
+      clearError(passwordField, passwordError);
+    }
+
+    if(valid){
+      // Aquí normalmente harías la petición real al backend, por ejemplo:
+      // fetch('/api/login', { method:'POST', body: JSON.stringify({ email, password }) })
+      status.classList.add('show');
+    }
+  });
+</script>
+
+</body>
+</html>
