@@ -295,21 +295,26 @@
   function renderAllChips() {
     chipsEl.innerHTML = '';
     var count = 0;
+    var categories = Object.keys(legalKnowledge);
 
-    Object.keys(legalKnowledge).forEach(function (catKey) {
-      legalKnowledge[catKey].questions.forEach(function (item) {
-        if (count >= 6) return;
+    for (var i = 0; i < categories.length && count < 6; i++) {
+      var questions = legalKnowledge[categories[i]].questions;
+
+      for (var j = 0; j < questions.length && count < 6; j++) {
+        var item = questions[j];
         var chip = document.createElement('button');
         chip.className = 'ai-question-chip';
         chip.type = 'button';
         chip.textContent = item.q;
-        chip.addEventListener('click', function () {
-          handleQuestion(item.q);
-        });
+        chip.addEventListener('click', (function (question) {
+          return function () {
+            handleQuestion(question);
+          };
+        })(item.q));
         chipsEl.appendChild(chip);
         count += 1;
-      });
-    });
+      }
+    }
   }
 
   function init() {
