@@ -18,6 +18,84 @@
 	<link rel="stylesheet" href="vendors/animate-css/animate.css">
 	<!-- main css -->
 	<link rel="stylesheet" href="css/style.css">
+	<style>
+		#features_counter .info-content p {
+			font-family: Georgia, 'Times New Roman', serif;
+		}
+		.single-success-large {
+			position: relative;
+			border-radius: 6px;
+			min-height: 460px;
+			padding: 40px;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			background-size: cover;
+			background-repeat: no-repeat;
+			overflow: hidden;
+		}
+		.single-success-large::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			z-index: 1;
+		}
+		.mission-box {
+			background-position: center 25%;
+		}
+		.mission-box::before {
+			background: linear-gradient(180deg, rgba(60,40,30,0.15), rgba(45,30,22,0.9));
+		}
+		.vision-box {
+			background-position: center 35%;
+		}
+		.vision-box::before {
+			background: linear-gradient(180deg, rgba(90,105,75,0.2), rgba(80,95,65,0.9));
+		}
+		.single-success-large h5,
+		.single-success-large p {
+			position: relative;
+			z-index: 2;
+			color: #fff;
+		}
+		.single-success-large h5 {
+			font-size: 26px;
+			margin-bottom: 15px;
+		}
+		.single-success-large p {
+			font-size: 15px;
+			line-height: 1.8;
+			color: rgba(255,255,255,0.9);
+			margin-bottom: 0;
+		}
+		.why-different-section {
+			position: relative;
+			padding-top: 80px;
+			padding-bottom: 80px;
+			overflow: visible;
+		}
+		.why-different-content {
+			max-width: 900px;
+			margin: 0 auto;
+			text-align: center;
+			position: static;
+		}
+		.why-different-content h1 {
+			font-size: 42px;
+		}
+		.why-different-content p {
+			max-width: 700px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.about-area {
+			margin-top: 0 !important;
+			padding-top: 60px;
+		}
+		.about-inner {
+			margin-top: 0 !important;
+		}
+	</style>
 </head>
 
 <body id="about">
@@ -49,12 +127,12 @@
 						<ul class="nav navbar-nav menu_nav ml-auto">
 							<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
 							<li class="nav-item active"><a class="nav-link" href="about-us.html">About</a></li>
-							<li class="nav-item"><a class="nav-link" href="Service.html">Service</a></li>
+							<li class="nav-item"><a class="nav-link" href="service.html">Service</a></li>
 							<li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
 							<li class="nav-item"><a class="nav-link" href="Lawyers.html">Lawyers</a></li>
 								</ul>
 							</li>
-							<li class="nav-item"><a class="nav-link" href="Veridicta AI.html">Veridicta AI</a></li>
+							<li class="nav-item"><a class="nav-link" href="veridicta-community.html">Veridicta Community</a></li>
 							<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 						</ul>
 						<ul class="nav navbar-nav ml-auto">
@@ -104,51 +182,14 @@
 		<div class="container">
 			<div class="row counter_wrapper">
 				<!-- single feature -->
-				<div class="col-lg-3 col-md-6 col-sm-6">
+				<div class="col-lg-12">
 					<div class="single_feature">
 						<div class="thumb">
-							<img src="img/features/1.png" alt="">
+							
 						</div>
 						<div class="info-content">
-							<h4><span class="counter">596</span>+</h4>
-							<p>Qualified Lawyer</p>
+							<p>At Veridicta, we believe that justice should be accessible and transparent. Our team of seasoned professionals is dedicated to providing honest legal guidance and unwavering support..</p>
 
-						</div>
-					</div>
-				</div>
-				<!-- single feature -->
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="single_feature">
-						<div class="thumb">
-							<img src="img/features/2.png" alt="">
-						</div>
-						<div class="info-content">
-							<h4><span class="counter">20650</span>+</h4>
-							<p>Solved Cases</p>
-						</div>
-					</div>
-				</div>
-				<!-- single feature -->
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="single_feature">
-						<div class="thumb">
-							<img src="img/features/3.png" alt="">
-						</div>
-						<div class="info-content">
-							<h4><span class="counter">2.5</span>k</h4>
-							<p>Trusted Clients</p>
-						</div>
-					</div>
-				</div>
-				<!-- single feature -->
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="single_feature">
-						<div class="thumb">
-							<img src="img/features/4.png" alt="">
-						</div>
-						<div class="info-content">
-							<h4><span class="counter">50</span>+</h4>
-							<p>Achievements</p>
 						</div>
 					</div>
 				</div>
@@ -158,38 +199,13 @@
 	<!--================ End Features Area =================-->
 
 	<!--================ Start Video Area =================-->
-	<section class="video-sec-area section_gap_top" id="about">
+	<section class="why-different-section" id="why-different">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6 video-left overlay">
-					<div class="video-inner justify-content-center align-items-center d-flex">
-						<a id="play-home-video" class="video-play-button" href="https://www.youtube.com/watch?time_continue=2&v=J9YzcEe29d0">
-							<span></span>
-						</a>
-					</div>
-				</div>
-				<div class="col-lg-6 video-right">
-					<h1>Get to Know Project Estimate?</h1>
-					<p>There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope. It’s
-						exciting to think about setting up your own viewing station whether that is on the deck.</p>
+				<div class="col-lg-12 why-different-content">
+					<h1>Why Are We Different?</h1>
+					<p>At Veridicta, we believe that justice should be accessible and transparent. Our team of seasoned professionals is dedicated to providing honest legal guidance and unwavering support...</p>
 					<a href="#" class="primary-btn">Learn More</a>
-
-					<div class="right-bottom-area">
-						<div class="author-lacture">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed eiusmod tempor incididunt labore dolore magna
-								aliqua enim minim veniam quis nostrud. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed eiusmod
-								tempor incididunt labore dolore magna aliqua enim minim veniam quis nostrud. Lorem ipsum dolor sit amet,
-								consectetur adipisicing elit, sed eiusmod tempor incididunt labore dolore magna aliqua enim minim veniam quis
-								nostrud.</p>
-							<div class="author-title">
-								<div class="thumb"><img src="img/about-author.png" alt=""></div>
-								<div class="a-desc">
-									<h6>Marvel Maison</h6>
-									<p>Chief Executive, Amazon</p>
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -198,35 +214,21 @@
 	<section class="about-area">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6">
+				<div class="col-lg-12">
 					<div class="about-inner">
 						<div class="row">
 							<!-- single success -->
 							<div class="col-lg-6 col-md-6">
-								<div class="single-success">
-									<h5>Road to Success</h5>
-									<p>Lorem ipsum dolor sit amet, sed eiusmod tempor incididunt labore dolore magna.</p>
+								<div class="single-success-large mission-box" style="background-image: url('img/mission.jpg');">
+									<h5>Mission</h5>
+									<p>To provide transparent and accessible legal solutions through Veridicta, ensuring every client receives the expert guidance and personalized defense they deserve.</p>
 								</div>
 							</div>
 							<!-- single success -->
 							<div class="col-lg-6 col-md-6">
-								<div class="single-success">
-									<h5>Road to Success</h5>
-									<p>Lorem ipsum dolor sit amet, sed eiusmod tempor incididunt labore dolore magna.</p>
-								</div>
-							</div>
-							<!-- single success -->
-							<div class="col-lg-6 col-md-6">
-								<div class="single-success">
-									<h5>Road to Success</h5>
-									<p>Lorem ipsum dolor sit amet, sed eiusmod tempor incididunt labore dolore magna.</p>
-								</div>
-							</div>
-							<!-- single success -->
-							<div class="col-lg-6 col-md-6">
-								<div class="single-success">
-									<h5>Road to Success</h5>
-									<p>Lorem ipsum dolor sit amet, sed eiusmod tempor incididunt labore dolore magna.</p>
+								<div class="single-success-large vision-box" style="background-image: url('img/vision.jpg');">
+									<h5>Vision</h5>
+									<p>To become a global benchmark for legal excellence, where Veridicta is recognized for transforming complex legal hurdles into clear paths toward justice and peace.</p>
 								</div>
 							</div>
 						</div>
