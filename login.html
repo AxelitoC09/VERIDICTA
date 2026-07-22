@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crear cuenta — Yourwelcome</title>
+<title>Iniciar sesión — Yourwelcome</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
@@ -24,65 +24,9 @@
   }
   .screen{
     display:grid;
-    grid-template-columns:1fr minmax(360px,44%);
+    grid-template-columns:minmax(360px,44%) 1fr;
     height:100vh;
     width:100vw;
-  }
-
-  /* ---------- Panel de imagen ---------- */
-  .panel-image{
-    position:relative;
-    background:#0d0f11 url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-  }
-  .panel-image::after{
-    content:'';
-    position:absolute;inset:0;
-    background:
-      linear-gradient(180deg, rgba(20,24,28,0.15), rgba(20,24,28,0.65) 78%, rgba(20,24,28,0.9)),
-      linear-gradient(270deg, rgba(20,24,28,0.55), transparent 30%);
-  }
-  .image-caption{
-    position:absolute;
-    left:56px;
-    bottom:56px;
-    right:56px;
-    z-index:1;
-    color:var(--parchment);
-  }
-  .image-caption .quote-mark{
-    font-family:'Fraunces',serif;
-    font-size:48px;
-    color:var(--gold);
-    line-height:0.6;
-    display:block;
-    margin-bottom:8px;
-  }
-  .image-caption p{
-    font-family:'Fraunces',serif;
-    font-style:italic;
-    font-weight:500;
-    font-size:22px;
-    line-height:1.4;
-    margin:0 0 14px;
-    max-width:420px;
-  }
-  .image-caption .cite{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:#c9c2b3;
-  }
-  .corner-mark{
-    position:absolute;
-    top:40px;
-    left:56px;
-    z-index:1;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    letter-spacing:0.1em;
-    color:rgba(250,247,242,0.7);
-    writing-mode:vertical-rl;
   }
 
   /* ---------- Panel del formulario ---------- */
@@ -139,7 +83,7 @@
     color:#6b6459;
     margin:0 0 32px;
   }
-  form{display:flex;flex-direction:column;gap:18px;}
+  form{display:flex;flex-direction:column;gap:20px;}
   .field{display:flex;flex-direction:column;gap:8px;position:relative;}
   label{
     font-size:12px;
@@ -182,19 +126,19 @@
     padding:4px 0;
   }
   .toggle-pw:hover{color:var(--charcoal);}
-  .terms{
+  .row{
     display:flex;
-    align-items:flex-start;
-    gap:8px;
-    font-size:12.5px;
+    align-items:center;
+    justify-content:space-between;
+    font-size:13px;
     color:#6b6459;
-    line-height:1.4;
   }
-  .terms input{accent-color:var(--gold);width:14px;height:14px;padding:0;margin-top:2px;flex-shrink:0;}
+  .remember{display:flex;align-items:center;gap:8px;}
+  .remember input{accent-color:var(--gold);width:14px;height:14px;padding:0;}
   a{color:var(--charcoal);text-decoration:none;border-bottom:1px solid var(--rule);}
   a:hover{border-bottom-color:var(--charcoal);}
   button.submit{
-    margin-top:4px;
+    margin-top:8px;
     padding:14px;
     background:var(--charcoal);
     color:var(--parchment);
@@ -240,17 +184,61 @@
     color:#2f5e3b;
   }
   .status.show{display:block;}
-  .strength{
-    display:flex;
-    gap:4px;
-    margin-top:2px;
+
+  /* ---------- Panel de imagen ---------- */
+  .panel-image{
+    position:relative;
+    background:#0d0f11 url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
   }
-  .strength span{
-    height:3px;
-    flex:1;
-    background:var(--rule);
-    border-radius:2px;
-    transition:background .2s ease;
+  .panel-image::after{
+    content:'';
+    position:absolute;inset:0;
+    background:
+      linear-gradient(180deg, rgba(20,24,28,0.15), rgba(20,24,28,0.65) 78%, rgba(20,24,28,0.9)),
+      linear-gradient(90deg, rgba(20,24,28,0.55), transparent 30%);
+  }
+  .image-caption{
+    position:absolute;
+    left:56px;
+    bottom:56px;
+    right:56px;
+    z-index:1;
+    color:var(--parchment);
+  }
+  .image-caption .quote-mark{
+    font-family:'Fraunces',serif;
+    font-size:48px;
+    color:var(--gold);
+    line-height:0.6;
+    display:block;
+    margin-bottom:8px;
+  }
+  .image-caption p{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:22px;
+    line-height:1.4;
+    margin:0 0 14px;
+    max-width:420px;
+  }
+  .image-caption .cite{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:#c9c2b3;
+  }
+  .corner-mark{
+    position:absolute;
+    top:40px;
+    right:56px;
+    z-index:1;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    color:rgba(250,247,242,0.7);
+    writing-mode:vertical-rl;
   }
 
   @media (max-width:860px){
@@ -268,29 +256,14 @@
 <body>
 <div class="screen">
 
-  <div class="panel-image">
-    <span class="corner-mark">EST. MMXXVI</span>
-    <div class="image-caption">
-      <span class="quote-mark">“</span>
-      <p>Cada cuenta nueva es un lugar reservado que no existía antes.</p>
-      <span class="cite">— Yourwelcome</span>
-    </div>
-  </div>
-
   <div class="panel-form">
     <div class="brand">Yourwelcome</div>
     <div class="form-wrap">
       <p class="eyebrow">Acceso privado</p>
-      <h1>Crea tu<br>cuenta</h1>
-      <p class="sub">Solo toma un minuto.</p>
+      <h1>Bienvenido<br>de nuevo</h1>
+      <p class="sub">Ingresa tus credenciales para continuar.</p>
 
-      <form id="signupForm" novalidate>
-        <div class="field" id="nameField">
-          <label for="name">Nombre completo</label>
-          <input type="text" id="name" placeholder="Ana Torres" autocomplete="name">
-          <p class="error-msg" id="nameError"></p>
-        </div>
-
+      <form id="loginForm" novalidate>
         <div class="field" id="emailField">
           <label for="email">Email</label>
           <input type="email" id="email" placeholder="tu@correo.com" autocomplete="email">
@@ -300,64 +273,55 @@
         <div class="field" id="passwordField">
           <label for="password">Password</label>
           <div class="pw-wrap">
-            <input type="password" id="password" placeholder="Mínimo 8 caracteres" autocomplete="new-password">
+            <input type="password" id="password" placeholder="••••••••" autocomplete="current-password">
             <button type="button" class="toggle-pw" id="togglePw">MOSTRAR</button>
-          </div>
-          <div class="strength" id="strength">
-            <span></span><span></span><span></span><span></span>
           </div>
           <p class="error-msg" id="passwordError"></p>
         </div>
 
-        <div class="field" id="confirmField">
-          <label for="confirm">Confirmar password</label>
-          <input type="password" id="confirm" placeholder="••••••••" autocomplete="new-password">
-          <p class="error-msg" id="confirmError"></p>
+        <div class="row">
+          <label class="remember">
+            <input type="checkbox" id="remember">
+            Recordarme
+          </label>
+          <a href="#">¿Olvidaste tu contraseña?</a>
         </div>
 
-        <label class="terms">
-          <input type="checkbox" id="terms">
-          <span>Acepto los <a href="#">Términos</a> y el <a href="#">Aviso de privacidad</a>.</span>
-        </label>
+        <button type="submit" class="submit">Iniciar sesión</button>
 
-        <button type="submit" class="submit">Crear cuenta</button>
-
-        <p class="status" id="status">Cuenta creada correctamente. Redirigiendo…</p>
+        <p class="status" id="status">Inicio de sesión correcto. Redirigiendo…</p>
       </form>
 
       <div class="divider">o continúa con</div>
-      <p class="footer">¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+      <p class="footer">¿No tienes cuenta? <a href="signup.html">Regístrate</a></p>
+    </div>
+  </div>
+
+  <div class="panel-image">
+    <span class="corner-mark">EST. MMXXVI</span>
+    <div class="image-caption">
+      <span class="quote-mark">“</span>
+      <p>Un espacio pensado para quienes vuelven, no para quienes llegan por primera vez.</p>
+      <span class="cite">— Yourwelcome</span>
     </div>
   </div>
 
 </div>
 
 <script>
-  const form = document.getElementById('signupForm');
-  const nameInput = document.getElementById('name');
+  const form = document.getElementById('loginForm');
   const emailInput = document.getElementById('email');
   const passwordInput = document.getElementById('password');
-  const confirmInput = document.getElementById('confirm');
-  const termsInput = document.getElementById('terms');
-
-  const nameField = document.getElementById('nameField');
   const emailField = document.getElementById('emailField');
   const passwordField = document.getElementById('passwordField');
-  const confirmField = document.getElementById('confirmField');
-
-  const nameError = document.getElementById('nameError');
   const emailError = document.getElementById('emailError');
   const passwordError = document.getElementById('passwordError');
-  const confirmError = document.getElementById('confirmError');
-
   const togglePw = document.getElementById('togglePw');
   const status = document.getElementById('status');
-  const strengthBars = document.querySelectorAll('#strength span');
 
   togglePw.addEventListener('click', () => {
     const isPw = passwordInput.type === 'password';
     passwordInput.type = isPw ? 'text' : 'password';
-    confirmInput.type = isPw ? 'text' : 'password';
     togglePw.textContent = isPw ? 'OCULTAR' : 'MOSTRAR';
   });
 
@@ -373,30 +337,10 @@
     msgEl.textContent = '';
   }
 
-  passwordInput.addEventListener('input', () => {
-    const v = passwordInput.value;
-    let score = 0;
-    if(v.length >= 8) score++;
-    if(/[A-Z]/.test(v) && /[a-z]/.test(v)) score++;
-    if(/\d/.test(v)) score++;
-    if(/[^A-Za-z0-9]/.test(v)) score++;
-    const colors = ['var(--rule)', '#b3432b', '#c9a227', '#3f7a4f'];
-    strengthBars.forEach((bar, i) => {
-      bar.style.background = i < score ? colors[Math.min(score,3)] : 'var(--rule)';
-    });
-  });
-
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     status.classList.remove('show');
     let valid = true;
-
-    if(nameInput.value.trim().length < 2){
-      setError(nameField, nameError, 'Ingresa tu nombre.');
-      valid = false;
-    } else {
-      clearError(nameField, nameError);
-    }
 
     if(!isValidEmail(emailInput.value.trim())){
       setError(emailField, emailError, 'Ingresa un correo válido.');
@@ -405,34 +349,19 @@
       clearError(emailField, emailError);
     }
 
-    if(passwordInput.value.length < 8){
-      setError(passwordField, passwordError, 'Usa al menos 8 caracteres.');
+    if(passwordInput.value.length < 6){
+      setError(passwordField, passwordError, 'La contraseña debe tener al menos 6 caracteres.');
       valid = false;
     } else {
       clearError(passwordField, passwordError);
     }
 
-    if(confirmInput.value !== passwordInput.value || confirmInput.value === ''){
-      setError(confirmField, confirmError, 'Las contraseñas no coinciden.');
-      valid = false;
-    } else {
-      clearError(confirmField, confirmError);
-    }
-
-    if(!termsInput.checked){
-      valid = false;
-    }
-
     if(valid){
       // Aquí va la petición real al backend, por ejemplo:
-      // const res = await fetch('/api/signup', {
+      // const res = await fetch('/api/login', {
       //   method:'POST',
       //   headers:{'Content-Type':'application/json'},
-      //   body: JSON.stringify({
-      //     name: nameInput.value,
-      //     email: emailInput.value,
-      //     password: passwordInput.value
-      //   })
+      //   body: JSON.stringify({ email: emailInput.value, password: passwordInput.value })
       // });
       status.classList.add('show');
     }
